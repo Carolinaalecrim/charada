@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar  >
+    <ion-buttons slot="end">
+      <button type="button" (click)="chamarCharada()"><ion-icon name="refresh"></ion-icon></button>
+    </ion-buttons>
+    <ion-title>
+      Charada
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="medium">
+  <div class="conteudo">
+    <div class="d-flex justify-content-center mt-5">
+      <h1>A charada sorteada foi: </h1>
+    </div>
+    <div class="d-flex justify-content-center my-5 charada">
+      <ion-label *ngFor="let item of prg; let i = index">
+        {{item.pergunta}}
+      </ion-label>
+    </div>
+    <div class="d-flex justify-content-center mb-5">
+      <button type="button" class="btn" (click)="mostrarCharada()">A resposta é</button>
+    </div>
+    <div class="d-flex justify-content-center resposta" *ngIf="!result">
+      <div [class.bounce-in-top]="!result" *ngFor="let item of prg; let i = index">
+        {{item.resposta}}
+      </div>
+    </div>
+  </div>
+</ion-content>
